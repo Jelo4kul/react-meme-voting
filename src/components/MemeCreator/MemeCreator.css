@@ -1,0 +1,27 @@
+.MemeCreator {
+    padding: 0px 20px;
+}
+
+.Inner {
+    padding: 0px;
+    text-align: center;
+    display: flex;    
+    justify-content: space-between;
+    width: 100%;
+}
+
+.MemeCreator input {
+     width: 42%;
+     padding: 10px;
+     margin-bottom: 10px;
+}
+
+.MemeCreator button {
+    padding: 12px;
+    font-size: 15px;
+    width: 100%;
+    background-color: rgb(163, 45, 64);
+    color: white;
+    border: 0;
+    border-radius: 4px;
+}
