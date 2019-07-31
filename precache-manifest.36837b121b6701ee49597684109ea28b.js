@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "99a124f3a93e99c5e642d79494b5e009",
+    "revision": "a0abb931554f06a51159893fd77fb087",
     "url": "/react-meme-voting/index.html"
   },
   {
-    "revision": "316d3118ca61e863d095",
+    "revision": "4b05e3ea1e7b3112e225",
     "url": "/react-meme-voting/static/css/main.1ad2bbd1.chunk.css"
   },
   {
-    "revision": "3ed116c6211b839ababa",
-    "url": "/react-meme-voting/static/js/2.6b8197d1.chunk.js"
+    "revision": "8f865c8fb3df119a2a1a",
+    "url": "/react-meme-voting/static/js/2.9163d81f.chunk.js"
   },
   {
-    "revision": "316d3118ca61e863d095",
-    "url": "/react-meme-voting/static/js/main.cc84ef2d.chunk.js"
+    "revision": "4b05e3ea1e7b3112e225",
+    "url": "/react-meme-voting/static/js/main.48b765e0.chunk.js"
   },
   {
     "revision": "021289a9257739109f45",
@@ -21,6 +21,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   },
   {
     "revision": "096b5b39553a38dd0d70611f125f7bbb",
-    "url": "/react-meme-voting/static/media/MemeVote.096b5b39.txt"
+    "url": "/react-meme-voting/static/media/MemeVote.096b5b39.aes"
   }
 ]);
