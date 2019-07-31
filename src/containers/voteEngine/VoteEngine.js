@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MemeCreator from '../../components/MemeCreator/MemeCreator';
 import MemeLists from '../../components/MemeLists/MemeLists';
-//import { Crypto } from '@aeternity/aepp-sdk/es';
 import Ae from '@aeternity/aepp-sdk/es/ae/universal';
+import ContractSource from '../../assets/MemeVote.aes';
 
 
 class VoteEngine extends Component {
@@ -16,75 +16,59 @@ class VoteEngine extends Component {
         }
     }
 
-    componentWillMount() {
-        //this.interactWithBlockchain();
+    componentDidMount() {
+        this.interactWithBlockchain();
     }
 
     interactWithBlockchain = async () => {
 
-        const contractSource = `
-    contract MemeVote = 
-
-    record meme = {
-    creatorAddress: address,
-    voteCount: int,
-    name: string,
-    url: string
-    }
-    
-    record state = { 
-    memes: map(int, meme),
-    memesLength: int
-    }
-
-    entrypoint init() = { 
-    memes = {},
-    memesLength = 0
-    }
-
-    entrypoint getMeme(index: int): meme = 
-    switch(Map.lookup(index, state.memes))
-        None => abort("Index not found")
-        Some(y) => y
-    
-    stateful entrypoint setMeme(memeUrl: string, uname: string) =
-    let meme = { creatorAddress = Call.caller, name = uname, url = memeUrl, voteCount = 0}
-    let id = getMemesLength() + 1
-    put(state { memes[id] = meme, memesLength = id} )
-    
-
-    entrypoint getMemesLength(): int =
-    state.memesLength
-    
-    stateful entrypoint voteMeme(index: int) = 
-    let meme = getMeme(index)
-    Chain.spend(meme.creatorAddress, Call.value)
-    let updatedVoteCount = meme.voteCount + Call.value
-    let updatedMemes = state.memes{ [index].voteCount = updatedVoteCount }
-    put(state { memes = updatedMemes })
-    `
-        let client = null;
-
-        client = await Ae({
-            url: 'https://sdk-testnet.aepps.com', 
-            internalUrl: 'https://sdk-testnet.aepps.com',
-            keypair: {secretKey: "ak_2bKhoFWgQ9os4x8CaeDTHZRGzUcSwcXYUrM12gZHKTdyreGRgG", publicKey: "ak_2bKhoFWgQ9os4x8CaeDTHZRGzUcSwcXYUrM12gZHKTdyreGRgG"},
-            networkId: 'ae_uat'
-        });
-        //client = await Ae.Aepp();
-
-
-        //const contractAddress = 'ct_2cMdAVT6HyxZhFsvYvojxrDuMnvuPGLhEPPq65HEcuPoUi7JDE';
         const contractAddress = 'ct_2bNtx4F9CbxEH2LFnWqR7ggTwKTrdTGKLBmVhrh6H6jKKw9T6z';
 
-        //const height = await client.height();
-        const contract = await client.getContractInstance(contractSource, { contractAddress });
-        const calledGet = await contract.call('getMemesLength', [], { callStatic: true }).catch((error) => console.log(error));
-        console.log('calledGet', calledGet);
+        const client = await Ae({
+            url: 'https://sdk-testnet.aepps.com',
+            internalUrl: 'https://sdk-testnet.aepps.com',
+            networkId: 'ae_uat',
+            keypair: {
+                publicKey: 'ak_SmB9dDDkbs7Y4Lb11oySsyxwmxot6s7dzJaAPEefKwRbTQ551',
+                secretKey: 'c7511c7de81142e633f89609c09898486cd02f6cbff7666030bdcb3c0866b7753a7eb5035c83a4a7daf4d4b03558cef548ee882a15d0131fec29382a4eb91f25'
+            },
+            compilerUrl: "https://compiler.aepps.com",
+            nativeMode: true
+        })
 
-        const decodeGet = await calledGet.decode().catch(err => console.log(err));
-        console.log('decodeGet', decodeGet);
-        console.log(client);
+
+        fetch(ContractSource)
+            .then(response => response.text())
+            .then(text => {
+                // Logs a string of the contract source content.
+                console.log(text);
+                return client.getContractInstance(text, { contractAddress })
+            })
+            .then(contract => {
+                console.log(contract.compilerVersion)
+                return contract.call('getMemesLength', [], { callStatic: true })
+            })
+            .then(calledGet => {
+                console.log('calledGet', calledGet);
+                return calledGet.decode()
+            })
+            .then(decodeGet => {
+                console.log('decodeGet', decodeGet);
+            })
+
+        //const contractAddress = 'ct_2cMdAVT6HyxZhFsvYvojxrDuMnvuPGLhEPPq65HEcuPoUi7JDE';
+
+        //const contract = await clients.api.getContract(contractAddress);
+        //console.log(contract)
+        // const calledGet = await clients.call(contractSource, 'sophia-address', contractAddress, 'getMemesLength', [], { callStatic: true }).catch((error) => console.log(error));
+        //const height = await client.height();
+        //const contract = await client.getContractInstance(contractSource, { contractAddress });
+        //const calledGet = await contract.call('getMemesLength', [], { callStatic: true }).catch((error) => console.log(error));
+        //console.log('calledGet', calledGet);
+
+        //const decodeGet = await calledGet.decode().catch(err => console.log(err));
+        //console.log('decodeGet', decodeGet);
+        //console.log(client);
     };
 
     voteHandler = (memeId) => {
