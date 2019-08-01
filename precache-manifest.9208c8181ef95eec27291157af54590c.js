@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dd698a44a40827e7b1a7feb185ef37d6",
+    "revision": "56d4094ab6183d7bb1b12e54bd9bc256",
     "url": "/react-meme-voting/index.html"
   },
   {
-    "revision": "f45e1ad804d3c0eec605",
+    "revision": "ac467ce2068fc03a8c0b",
     "url": "/react-meme-voting/static/css/main.a2251ba8.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-meme-voting/static/js/2.9163d81f.chunk.js"
   },
   {
-    "revision": "f45e1ad804d3c0eec605",
-    "url": "/react-meme-voting/static/js/main.51800e7f.chunk.js"
+    "revision": "ac467ce2068fc03a8c0b",
+    "url": "/react-meme-voting/static/js/main.70f742b5.chunk.js"
   },
   {
     "revision": "021289a9257739109f45",

@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-meme-voting/static/css/main.a2251ba8.chunk.css",
-    "main.js": "/react-meme-voting/static/js/main.51800e7f.chunk.js",
-    "main.js.map": "/react-meme-voting/static/js/main.51800e7f.chunk.js.map",
+    "main.js": "/react-meme-voting/static/js/main.70f742b5.chunk.js",
+    "main.js.map": "/react-meme-voting/static/js/main.70f742b5.chunk.js.map",
     "runtime~main.js": "/react-meme-voting/static/js/runtime~main.0b8891af.js",
     "runtime~main.js.map": "/react-meme-voting/static/js/runtime~main.0b8891af.js.map",
     "static/js/2.9163d81f.chunk.js": "/react-meme-voting/static/js/2.9163d81f.chunk.js",
     "static/js/2.9163d81f.chunk.js.map": "/react-meme-voting/static/js/2.9163d81f.chunk.js.map",
     "index.html": "/react-meme-voting/index.html",
-    "precache-manifest.6bc6cb41b95681b6259574047c3cb596.js": "/react-meme-voting/precache-manifest.6bc6cb41b95681b6259574047c3cb596.js",
+    "precache-manifest.9208c8181ef95eec27291157af54590c.js": "/react-meme-voting/precache-manifest.9208c8181ef95eec27291157af54590c.js",
     "service-worker.js": "/react-meme-voting/service-worker.js",
     "static/css/main.a2251ba8.chunk.css.map": "/react-meme-voting/static/css/main.a2251ba8.chunk.css.map"
   }
